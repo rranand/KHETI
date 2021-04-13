@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Weed Detection | {{ block.super }}{% endblock %}
+
+{% block content %}
+{% load static %}
+    <div class="container">
+        <h1 class="title">Weed Detection</h1>
+
+        <div class="main-upload">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="image">Upload </label>
+                {{ form }}
+                <button id="btn_form" type="submit" class="btn btn-outline-primary">Upload</button>
+            </form>
+
+            {% if present %}
+                <div class="loadContent">
+                    {% if present == 'a' %}
+                        <div class="alert alert-danger" role="alert">
+                          Weed is present.
+                        </div>
+                    {% else %}
+                        <div class="alert alert-success" role="alert">
+                          Weed is not present.
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
