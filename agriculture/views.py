@@ -1,9 +1,8 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.shortcuts import render, get_object_or_404
 from .form import upload_img
-from .models import weed_image
+from .models import weed_image, fields
 from weed_checker import predict
-from django.conf import settings
-import os
 
 
 def home(request):
@@ -21,7 +20,6 @@ def weed_r(request):
             f = weed_image.objects.create(img=img)
             f.save()
             flag = predict(str(img))
-            os.remove(settings.BASE_DIR / str(f.img.name))
 
             if flag:
                 return render(request, 'weed.html', context={'form': f1, 'present': 'a'})
@@ -29,3 +27,15 @@ def weed_r(request):
                 return render(request, 'weed.html', context={'form': f1, 'present': 'b'})
 
     return render(request, 'weed.html', context={'form': f1})
+
+
+def get_location(request):
+    response_data = {'data': None}
+    location = get_object_or_404(fields, name=request.GET['name'])
+
+    response_data['data'] = {
+        'polygons': location.location.geojson,
+        'title': location.name
+    }
+
+    return JsonResponse(response_data)
