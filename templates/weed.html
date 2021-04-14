@@ -3,31 +3,87 @@
 
 {% block content %}
 {% load static %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBU61w60E2LtLIXCF5ZvHoXpiEPh99K_d0" type="text/javascript"></script>
     <div class="container">
         <h1 class="title">Weed Detection</h1>
 
         <div class="main-upload">
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" style="margin-bottom: 20px">
                 {% csrf_token %}
                 <label for="image">Upload </label>
                 {{ form }}
-                <button id="btn_form" type="submit" class="btn btn-outline-primary">Upload</button>
+                <button id="btn_form" type="submit" class="btn btn-outline-primary" style="margin-top: 15px">Upload</button>
             </form>
 
-            {% if present %}
-                <div class="loadContent">
-                    {% if present == 'a' %}
-                        <div class="alert alert-danger" role="alert">
-                          Weed is present.
-                        </div>
-                    {% else %}
-                        <div class="alert alert-success" role="alert">
-                          Weed is not present.
-                        </div>
-                    {% endif %}
-                </div>
-            {% endif %}
         </div>
+
+        {% if present %}
+            <div class="loadContent">
+                {% if present == 'a' %}
+                    <div class="alert alert-danger" role="alert">
+                        Weed is present.
+                    </div>
+
+
+                    <div id="map">
+
+                    </div>
+                    <script>
+
+                $.ajax({
+                    url: 'weedGeo',
+                    data: {'name': 'loc_1'},
+                    dataType: 'json',
+                    type: 'GET',
+                    success: function (data) {
+                        let map;
+                        data =  JSON.parse(data.data['polygons']);
+                        data = data['coordinates'][0];
+
+                        let mapOptions = {
+                            zoom: 14,
+                            center: {lat: 25.595581, lng: 85.1970895},
+                        }
+
+                        let path = [
+                            {lat: 25.59898363731363, lng: 85.19338976149221},
+                            {lat: 25.60180890704263, lng: 85.19914041761935},
+                            {lat: 25.59859660886556, lng: 85.2018440843057},
+                            {lat: 25.59422310035584, lng: 85.19617925886674},
+                            {lat: 25.59565515172404, lng: 85.19012819533059},
+                            {lat: 25.59948677242455, lng: 85.19107233290391},
+                            {lat: 25.59898363731363, lng: 85.19338976149221},
+                        ];
+
+                        /*for(let i = 0; i<data.length; i++) {
+                            path.push(new google.maps.LatLng(data[i][0], data[i][1]));
+                        }*/
+
+                        map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+                        let polygon = new google.maps.Polygon({
+                            paths: path,
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 0.8,
+                            strokeWeight: 2,
+                            fillColor: '#FF0000',
+                            editable: true,
+                            fillOpacity: 0.35,
+                            geodesic: true,
+                        });
+
+                        polygon.setMap(map);
+                    }
+                });
+            </script>
+                {% else %}
+                    <div class="alert alert-success" role="alert">
+                        Weed is not present.
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+
     </div>
 
 {% endblock %}
