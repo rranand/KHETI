@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}Home | {{ block.super }}{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <div class="container">
+        <div class="column">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                  <h5 class="card-title"><b><a href="{% url 'cropRecommend' %}" class="head-link">Crop Recommendation</a></b></h5>
+                <p class="card-text">Crop's Production are effected by soil quality and weather and hence determining best crop to grow as per present</p>
+                <a href="{% url 'cropRecommend' %}" class="btn btn-primary" disabled="true">Go</a>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="column-2">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                  <h5 class="card-title"><b><a href="{% url 'soilFertilizer' %}" class="head-link">Fertilizer Prediction</a></b></h5>
+                <p class="card-text">Determining the best fertilizer to be used as per crop and soil nutrient can help improve the quality and quality of crops</p>
+                <a href="{% url 'soilFertilizer' %}" class="btn btn-primary" disabled="true">Go</a>
+              </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="column">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                  <h5 class="card-title"><b><a href="{% url 'weed' %}" class="head-link">Weed Detection</a></b></h5>
+                <p class="card-text">Weeds often compete with the crop for nutrient and hence crops are not able to get sufficient resources and the crop yield reduces</p>
+                <a href="{% url 'weed' %}" class="btn btn-primary">Go</a>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="column-2">
+            <div class="card" style="width: 18rem;text-align: center">
+              <div class="card-body">
+                  <h5 class="card-title"><b><a href="{% url 'plantDisease' %}" class="head-link">Plant Disease Detection</a></b></h5>
+                <p class="card-text">Plant disease can hugely impact the production. Detecting the correct disease and its remedy can help</p>
+                <a href="{% url 'plantDisease' %}" class="btn btn-primary" disabled="true">Go</a>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="column">
+            <div class="card" style="width: 18rem;text-align: center">
+                <div class="card-body">
+                    <h5 class="card-title"><b><a href="#" class="head-link">Crop Water Level</a></b></h5>
+                    <p class="card-text">Identifying crop water stress level and detecting irrigation irregularities: As an additional service provided to the farmers according to the demands.</p>
+                    <a href="#" class="btn btn-primary" disabled="true">Go</a>
+                  </div>
+            </div>
+        </div>
+
+        <div class="column-2">
+            <div class="card" style="width: 18rem;text-align: center">
+                <div class="card-body">
+                    <h5 class="card-title"><b><a href="#" class="head-link">Weather Forecast</a></b></h5>
+                    <p class="card-text">Plant disease can hugely impact the production. Detecting the correct disease and its remedy can help</p>
+                    <a href="#" class="btn btn-primary" disabled="true">Go</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

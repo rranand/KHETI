@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Plant Disease Detection | {{ block.super }}{% endblock %}
+
+{% block content %}
+{% load static %}
+    <div class="container">
+        <h1 class="title"><a class="head-link" style="" href="{% url 'plantDisease' %}">Plant Disease Detection</a></h1>
+
+        <div style="display:block; margin:auto; width: 75%;">
+            <div class="main-upload">
+                <form method="post" enctype="multipart/form-data" style="margin-bottom: 20px">
+                    {% csrf_token %}
+                    <label for="image">Upload </label>
+                    {{ f1 }}
+                    <button id="btn_form" type="submit" class="btn btn-outline-primary" style="margin-top: 15px">Upload</button>
+                </form>
+            </div>
+            {% if predict %}
+                {% if flag %}
+                    <div class="alert alert-success" role="alert">
+                        {{ predict|capfirst }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ predict|capfirst }}
+                    </div>
+                {% endif %}
+
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

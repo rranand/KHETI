@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Soil Fertilizer | {{ block.super }}{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <div class="container">
+        <h1 class="title" style="margin-bottom: 50px"><a class="head-link" style="" href="{% url 'soilFertilizer' %}">Fertilizer Prediction</a></h1>
+
+        <div style="display:block; margin:auto; width: 75%;">
+            {% if predict %}
+                <form class="soil_form" method="post">
+                    {% csrf_token %}
+                    {{ f1.as_p }}
+                    <button id="btn_form" type="submit" class="btn btn-outline-primary" style="margin-top: 15px">Submit</button>
+                </form>
+
+                <div class="alert alert-primary" style="margin-top: 10px" role="alert">{{ predict }}</div>
+            {% else %}
+                <form class="soil_form" method="post">
+                    {% csrf_token %}
+                    {{ f1.as_p }}
+                    <button id="btn_form" type="submit" class="btn btn-outline-primary" style="margin-top: 15px">Submit</button>
+                </form>
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endblock %}

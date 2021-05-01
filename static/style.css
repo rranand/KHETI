@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    overflow: scroll;
+}
+
+body {
+    height: 100%;
+    margin: 0 0 70px 0;
+    padding: 0;
+    font-family: 'Montserrat', serif;
+    text-align: center;
+}
+
+#map {
+    display: block;
+    margin: 40px auto 20px auto;
+    width: 800px;
+    height: 750px;
+    text-align: center;
+    place-items: center;
+    padding: 20px;
+}
+
+.header {
+    height: 80px;
+    background: #15317E;
+    width: 100%;
+    color: white;
+}
+
+.header h1 {
+    display: block;
+    padding: 20px;
+    font-weight: 400;
+}
+
+#header_link {
+    text-decoration: none;
+    color: white;
+}
+
+.foot {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.container {
+    display: block;
+    place-items: center;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 30px;
+    min-width: 100%;
+}
+
+@media screen and (max-width: 881px) {
+
+    .container {
+        margin: 0 10px 0 10px;
+    }
+
+    .column {
+        display: block;
+        margin-top: 10px;
+        min-width: 100%;
+    }
+
+    .column-2 {
+        display: block;
+        margin-top: 10px;
+        min-width: 100%;
+    }
+}
+
+@media screen and (min-width: 882px) {
+
+    .container {
+        margin: 30px 10px 10px 10px;
+    }
+
+    .column {
+        float: left;
+        width: 50%;
+    }
+
+    .column-2 {
+        float: right;
+        width: 50%;
+    }
+}
+
+.card {
+    display: block;
+    margin: auto;
+}
+.card-title {
+    padding-bottom: 3px;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+.title {
+    width: fit-content;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+.main-upload {
+    display: block;
+    margin: auto;
+    max-width: 400px;
+    margin-top: 60px;
+}
+
+.form-control {
+    margin-top: 8px;
+}
+
+.main-upload .btn {
+    margin-top: 20px;
+}
+
+.loadContent {
+    margin-top: 20px;
+}
+
+.head-link {
+    color: black;
+    text-decoration: none;
+}
