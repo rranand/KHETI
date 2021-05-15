@@ -1,0 +1,139 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header">
+        <h4 class="card-title">Task Left</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+            <thead class=" text-primary">
+                  <tr>
+                    <th>
+                      Task Name
+                    </th>
+                    <th>
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      Weed Removal
+                    </td>
+                    <td>
+                      Weed has been detected and also added to the tasklist
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Fertilizer Shopping
+                    </td>
+                    <td>
+                      Get any fungicide for Tomato Septoria Leaf Spot
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Low NDVI
+                    </td>
+                    <td>
+                      Block 2 has low NDVI, it is need to be check on.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Soyabean Seeds
+                    </td>
+                    <td>
+                      Soyabean seed needed be brought.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Manure Shopping
+                    </td>
+                    <td>
+                      Running low on manure need to be bought
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      MetalaxylM4 
+                    </td>
+                    <td>
+                      MetalaxylM4 is needed for Potato Late blight
+                    </td>
+                  </tr>
+                </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="card  card-plain">
+      <div class="card-header">
+        <h4 class="card-title">Task Completed</h4>
+        <p class="category"> Task archived after completion</p>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+           <thead class=" text-primary">
+                  <tr>
+                    <th>
+                      Task Name
+                    </th>
+                    <th>
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      Weed Removal
+                    </td>
+                    <td>
+                      Weed removed and deleted from the tasklist
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Low NDVI
+                    </td>
+                    <td>
+                      Block 4 had low NDVI, now it has been managed properly.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Corn gray leaf spot
+                    </td>
+                    <td>
+                      Issue solved by spraying Mancozeb 75% WP, 80% WP fungicide.
+                    </td>
+                  </tr>
+                </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

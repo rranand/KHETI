@@ -1,0 +1,375 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="row">
+
+      <div class="col-12">
+        <div class="card card-chart">
+          <div class="card-header ">
+            <div class="row">
+              <div class="col-sm-6 text-left">
+                <h5 class="card-category">Precipitation</h5>
+                <h2 class="card-title">Year-wise</h2>
+              </div>
+              <div class="col-sm-6">
+                <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                  <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                    <input type="radio" name="options" checked>
+                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">2020</span>
+                    <span class="d-block d-sm-none">
+                      <i class="tim-icons icon-single-02"></i>
+                    </span>
+                  </label>
+                  <label class="btn btn-sm btn-primary btn-simple" id="1">
+                    <input type="radio" class="d-none d-sm-none" name="options">
+                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">2019</span>
+                    <span class="d-block d-sm-none">
+                      <i class="tim-icons icon-gift-2"></i>
+                    </span>
+                  </label>
+                  <label class="btn btn-sm btn-primary btn-simple" id="2">
+                    <input type="radio" class="d-none" name="options">
+                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">2018</span>
+                    <span class="d-block d-sm-none">
+                      <i class="tim-icons icon-tap-02"></i>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chartBig1"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h5 class="card-category">Cloudiness Prediction</h5>
+            <h3 class="card-title"><i class="tim-icons icon-cloud-download-93 text-primary"></i><div id="cloudInput"></div>%</h3>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chartLinePurple"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h5 class="card-category">Humidity Prediction</h5>
+            <h3 class="card-title"><i class="tim-icons icon-chart-bar-32 text-info"></i><div id="humidInput"></div>%</h3>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="CountryChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-chart">
+          <div class="card-header">
+            <h5 class="card-category">Temperature Prediction</h5>
+            <h3 class="card-title"><i class="tim-icons icon-bulb-63 text-success"></i><div id="tempInput"></div>°C</h3>
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="chartLineGreen"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="card card-tasks">
+          <div class="card-header ">
+            <h6 class="title d-inline">Tasks(7)</h6>
+            <p class="card-category d-inline">today</p>
+          </div>
+          <div class="card-body ">
+            <div class="table-full-width table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="title">Preparation of soil</p>
+                      <p class="text-muted">Soil needs to be prepared for plantation of the soyabean crops.</p>
+                    </td>
+                    <td class="td-actions text-right">
+                      <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                        <i class="tim-icons icon-pencil"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="title">Sowing</p>
+                      <p class="text-muted">The soil of the cron farm has been prepared now sowing is required</p>
+                    </td>
+                    <td class="td-actions text-right">
+                      <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                        <i class="tim-icons icon-pencil"></i>
+                      </button>
+                    </td>
+                  </tr><tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="title">Adding manure and fertilizer</p>
+                      <p class="text-muted">Wheat farm need manure and fertilizers to be supplied</p>
+                    </td>
+                    <td class="td-actions text-right">
+                      <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                        <i class="tim-icons icon-pencil"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="title">Apple Black Rot</p>
+                      <p class="text-muted">Apple Black Rot has been detected in the leaves of apple (https://arccjournals.com/uploads/articles/R3443.pdf) Spray the MANCOZEB 75% WP, 80% WP fungicide to cure it.</p>
+                    </td>
+                    <td class="td-actions text-right">
+                      <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                        <i class="tim-icons icon-pencil"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="title">Irrigation</p>
+                      <p class="text-muted">4/7 farms need to be irrigated today</p>
+                    </td>
+                    <td class="td-actions text-right">
+                      <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                        <i class="tim-icons icon-pencil"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="title">Tomato Yellow Leaf Curl Virus</p>
+                      <p class="text-muted">Tomato Yellow Leaf Curl Virus has been detected,  (https://www.sciencedirect.com/science/article/abs/pii/S1360138520301151) get any fungicide for this just management.</p>
+                    </td>
+                    <td class="td-actions text-right">
+                      <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                        <i class="tim-icons icon-pencil"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="title">Weed Removal</p>
+                      <p class="text-muted">Weed has been detected and should be removed, follow the map page to know the locations.</p>
+                    </td>
+                    <td class="td-actions text-right">
+                      <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                        <i class="tim-icons icon-pencil"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="card ">
+          <div class="card-header">
+            <h4 class="card-title">Recently Added Task (Top 5)</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table tablesorter " id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>
+                      Task Name
+                    </th>
+                    <th>
+                      Description
+                    </th>
+                    <!-- <th>
+                      City
+                    </th>
+                    <th class="text-center">
+                      Salary
+                    </th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      Weed Removal
+                    </td>
+                    <td>
+                      Weed has been detected and also added to the tasklist
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Fertilizer Shopping
+                    </td>
+                    <td>
+                      Get any fungicide for Tomato Septoria Leaf Spot
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Low NDVI
+                    </td>
+                    <td>
+                      Block 2 has low NDVI, it is need to be check on.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Soyabean Seeds
+                    </td>
+                    <td>
+                      Soyabean seed needed be brought.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Manure Shopping
+                    </td>
+                    <td>
+                      Running low on manure need to be bought
+                    </td>
+                  </tr><!-- 
+                  <tr>
+                    <td>
+                      MetalaxylM4 
+                    </td>
+                    <td>
+                      MetalaxylM4 is needed for Potato Late blight
+                    </td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<script>
+link = "https://api.openweathermap.org/data/2.5/weather?lat=19.298542&lon=73.337505&appid=72248ab73ae4b26739413f58faadb478";
+var request = new XMLHttpRequest();
+request.open('GET',link,true);
+request.onload = function(){
+  var obj = JSON.parse(this.response);
+  var dataTemp;
+  var dataHumid;
+  var dataCloud;
+  dataTemp = Math.round(parseFloat(obj.main.temp)-273.15);
+  dataHumid = obj.main.humidity;
+  dataCloud = obj.clouds.all;
+  document.getElementById("tempInput").innerHTML = dataTemp;
+  document.getElementById("humidInput").innerHTML = dataHumid;
+  document.getElementById("cloudInput").innerHTML = dataCloud;
+  // console.log(dataTemp);
+  // console.log(dataHumid);
+  // console.log(dataCloud);
+}
+request.send();
+
+</script>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+
+    });
+  </script>
+
+{% endblock javascripts %}

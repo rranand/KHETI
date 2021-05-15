@@ -1,0 +1,53 @@
+
+
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+        
+        <div class="logo">
+          <a href="/dash" class="simple-text logo-mini">
+            ->
+          </a>
+          <a href="/dash" class="simple-text logo-normal">
+            KHETI Dashboard
+          </a>
+        </div>
+
+        <ul class="nav">
+        {% if True %}
+          <li class="{% if 'index' in segment %} active {% endif %} ">
+            <a href="/dash">
+              <i class="tim-icons icon-chart-pie-36"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="{% if 'maps' in segment %} active {% endif %}">
+            <a href="/dash/ui-maps.html">
+              <i class="tim-icons icon-pin"></i>
+              <p>Maps</p>
+            </a>
+          </li>
+          <li class="{% if 'notifications' in segment %} active {% endif %}">
+            <a href="/dash/ui-notifications.html">
+              <i class="tim-icons icon-bell-55"></i>
+              <p>Notifications</p>
+            </a>
+          </li>
+          <li class="{% if 'tables' in segment %} active {% endif %}">
+            <a href="/dash/ui-tables.html">
+              <i class="tim-icons icon-puzzle-10"></i>
+              <p>Table List</p>
+            </a>
+          </li>
+          <li class="{% if 'typography' in segment %} active {% endif %}">
+            <a href="/dash/ui-typography.html">
+              <i class="tim-icons icon-align-center"></i>
+              <p>Manual</p>
+            </a>
+          </li>
+          {% else %} 
+          {% endif %}
+                    
+        </ul>
+        
+      </div>
+    </div>

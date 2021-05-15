@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Water Level | {{ block.super }}{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <div class="container">
+        <h1 class="title" style="margin-bottom: 50px"><a class="head-link" style="" href="{% url 'irrigation' %}">Vegetation Index</a></h1>
+
+        <div style="display:block; margin:auto; width: 75%;">
+            <form class="soil_form" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                {{ f1.as_p }}
+                <button id="btn_form" type="submit" class="btn btn-outline-primary" style="margin-top: 15px">Submit</button>
+            </form>
+
+            {% if out %}
+                <div class="alert alert-success" style="margin-top:15px;" role="alert">
+                    No irrigation Required
+                </div>
+            {% elif data %}
+                <div class="alert alert-danger" style="margin-top:15px;" role="alert">
+                    More attention is required for these plots {{ data }}
+                </div>
+                <img class="plot" src={% static 'hello.png' %}>
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endblock %}

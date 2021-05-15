@@ -141,3 +141,13 @@ body {
     color: black;
     text-decoration: none;
 }
+
+label {
+    margin-top: 20px;
+}
+
+.plot {
+    display: block;
+    margin: 20px auto auto;
+    width: 85%;
+}

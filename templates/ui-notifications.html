@@ -1,0 +1,101 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} UI Notifications {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Weather/Reminder Alerts</h4>
+      </div>
+      <div class="card-body">
+        <!-- <div class="alert alert-info">
+          <span>This is a plain notification</span>
+        </div> -->
+        <div class="alert alert-info">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span>Reminder for sowing in potato farm.</span>
+        </div>
+        <div class="alert alert-info">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span>Reminder for irrigation in wheat farm.</span>
+        </div>
+        <div class="alert alert-info alert-with-icon" data-notify="container">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span data-notify="icon" class="tim-icons icon-bell-55"></span>
+          <span data-notify="message">Alert high cloud cover is expected today.</span>
+        </div>
+        <div class="alert alert-info alert-with-icon" data-notify="container">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span data-notify="icon" class="tim-icons icon-bell-55"></span>
+          <span data-notify="message">Percepitation level is above expected.</span>
+        </div>
+        <div class="alert alert-info alert-with-icon" data-notify="container">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span data-notify="icon" class="tim-icons icon-bell-55"></span>
+          <span data-notify="message">Spread of potato disease is detected.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Farm Notifications</h4>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-primary">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span><b> Irrigation - </b> Apple land needed to be irrigated more w.r.t NDVI</span>
+        </div>
+        <div class="alert alert-info">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span><b> Sowing - </b> Potato farm is needed to be sowed</span>
+        </div>
+        <div class="alert alert-success">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span><b> Preparation of soil - </b>Soil has to be send for the checkup and creation of the soil card</span>
+        </div>
+        <div class="alert alert-warning">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span><b> Harvesting - </b> Wheat farm in block 5 needs to be harvested</span>
+        </div>
+        <div class="alert alert-danger">
+          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span><b> Storage - </b> All the collected tommatos needs to be stored </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -6,7 +6,7 @@ from keras.models import load_model
 
 
 def predict(dire=""):
-    path = settings.BASE_DIR / 'images' / dire
+    path = settings.BASE_DIR / dire
 
     img = preprocessing.image.load_img(
         path, target_size=(180, 180)

@@ -10,6 +10,7 @@
         <div style="display:block; margin:auto; width: 75%;">
             {% if predict %}
                 <form class="soil_form" method="post">
+                    <p class="form-text">**Some of the field is filled already. Filled data are based on your current location.**</p>
                     {% csrf_token %}
                     {{ f1.as_p }}
                     <button id="btn_form" type="submit" class="btn btn-outline-primary" style="margin-top: 15px">Submit</button>
@@ -18,6 +19,7 @@
                 <div class="alert alert-primary" style="margin-top: 10px" role="alert">{{ predict|capfirst }}</div>
             {% else %}
                 <form class="soil_form" method="post">
+                    <p class="form-text">**Some of the field is filled already. Filled data are based on your current location.**</p>
                     {% csrf_token %}
                     {{ f1.as_p }}
                     <button id="btn_form" type="submit" class="btn btn-outline-primary" style="margin-top: 15px">Submit</button>

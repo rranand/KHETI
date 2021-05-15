@@ -23,6 +23,11 @@
                 {% else %}
                     <div class="alert alert-danger" role="alert">
                         {{ predict|capfirst }}
+                        {% if remedy %}
+                            <br>
+                            <br>
+                            Remedy: {{ remedy }}
+                        {% endif %}
                     </div>
                 {% endif %}
 

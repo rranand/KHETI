@@ -54,9 +54,9 @@
         <div class="column">
             <div class="card" style="width: 18rem;text-align: center">
                 <div class="card-body">
-                    <h5 class="card-title"><b><a href="#" class="head-link">Crop Water Level</a></b></h5>
-                    <p class="card-text">Identifying crop water stress level and detecting irrigation irregularities: As an additional service provided to the farmers according to the demands.</p>
-                    <a href="#" class="btn btn-primary" disabled="true">Go</a>
+                    <h5 class="card-title"><b><a href="{% url 'irrigation' %}" class="head-link">Vegetation Index</a></b></h5>
+                    <p class="card-text">Identification of the area where vegetation index is low, and accordingly informing the farmer to pay more attention in that block.</p>
+                    <a href="{% url 'irrigation' %}" class="btn btn-primary" disabled="true">Go</a>
                   </div>
             </div>
         </div>
@@ -64,9 +64,9 @@
         <div class="column-2">
             <div class="card" style="width: 18rem;text-align: center">
                 <div class="card-body">
-                    <h5 class="card-title"><b><a href="#" class="head-link">Weather Forecast</a></b></h5>
+                    <h5 class="card-title"><b><a href="/dash" class="head-link">Weather Forecast</a></b></h5>
                     <p class="card-text">Plant disease can hugely impact the production. Detecting the correct disease and its remedy can help</p>
-                    <a href="#" class="btn btn-primary" disabled="true">Go</a>
+                    <a href="/dash" class="btn btn-primary" disabled="true">Go</a>
                 </div>
             </div>
         </div>

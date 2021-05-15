@@ -8,4 +8,5 @@ urlpatterns = [
     path('soilFertilizer', views.soil_fertilizer, name='soilFertilizer'),
     path('cropRecommend', views.crop_recommend, name='cropRecommend'),
     path('plantDisease', views.plant_disease, name='plantDisease'),
+    path('irrigation', views.irrigation_check, name='irrigation'),
 ]

@@ -4,12 +4,12 @@ from django.contrib.auth.models import User, Group
 from django.contrib.gis.admin import OSMGeoAdmin
 
 
-@admin.register(fields)
+@admin.register(location_model)
 class FieldsAdmin(OSMGeoAdmin):
     list_display = ('name', 'location')
 
 
-admin.site.register(weed_image)
+admin.site.register(image_model)
 admin.site.unregister(User)
 admin.site.unregister(Group)
 
